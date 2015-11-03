@@ -7,3 +7,10 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
 }
+
+task cleanPlaceholder(type: Delete) {
+    delete 'src/main/java/.placeholder',
+           'src/main/resources/.placeholder',
+           'src/test/java/.placeholder',
+           'src/test/resources/.placeholder'
+}
