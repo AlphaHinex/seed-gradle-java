@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions id="definition" 
+  xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  targetNamespace="Examples">
+  
+  <process id="mosfSingle">
+  
+    <startEvent id="theStart" />
+
+    <sequenceFlow id="flow1" sourceRef="theStart" targetRef="singleTask" />
+    
+    <userTask id="singleTask" name="Single Task" />
+
+    <sequenceFlow id="flow2" sourceRef="singleTask" targetRef="notPass">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approveResult.equals("no")}]]></conditionExpression>
+    </sequenceFlow>
+
+    <userTask id="notPass" name="Not Pass" />
+
+    <sequenceFlow id="flow3" sourceRef="singleTask" targetRef="theEnd">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approveResult.equals("yes")}]]></conditionExpression>
+    </sequenceFlow>
+
+    <sequenceFlow id="flow4" sourceRef="notPass" targetRef="theEnd" />
+
+    <endEvent id="theEnd" />
+    
+  </process>
+
+</definitions>

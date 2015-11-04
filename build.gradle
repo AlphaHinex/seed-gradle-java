@@ -7,9 +7,12 @@ repositories {
 }
 
 dependencies {
-    compile 'org.slf4j:slf4j-api:1.7.12'
+    testCompile 'junit:junit:4.12',
+                'org.activiti:activiti-engine:5.18.0',
+                'org.activiti:activiti-spring:5.18.0',
+                'org.springframework:spring-test:4.1.5.RELEASE'
 
-    testCompile 'junit:junit:4.12'
+    runtime 'com.h2database:h2:1.3.176'
 }
 
 task cleanPlaceholder(type: Delete) {
