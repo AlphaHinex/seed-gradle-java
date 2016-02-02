@@ -1,13 +1,16 @@
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
+apply plugin: 'war'
+apply plugin: 'jetty'
 
 repositories {
     jcenter()
 }
 
 dependencies {
-    compile 'org.slf4j:slf4j-api:1.7.12'
+    compile 'org.slf4j:slf4j-api:1.7.12',
+            'ro.isdc.wro4j:wro4j-core:1.7.9'
 
     testCompile 'junit:junit:4.12'
 }
